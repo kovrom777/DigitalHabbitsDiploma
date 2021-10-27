@@ -9,19 +9,43 @@
 /* Begin PBXBuildFile section */
 		E0490EB726F3E1150089DB83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0490EB626F3E1150089DB83 /* AppDelegate.swift */; };
 		E0490EB926F3E1150089DB83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0490EB826F3E1150089DB83 /* SceneDelegate.swift */; };
-		E0490EBB26F3E1150089DB83 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0490EBA26F3E1150089DB83 /* StartViewController.swift */; };
+		E0490EBB26F3E1150089DB83 /* TradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0490EBA26F3E1150089DB83 /* TradingViewController.swift */; };
 		E0490EC026F3E1190089DB83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0490EBF26F3E1190089DB83 /* Assets.xcassets */; };
 		E0490EC326F3E1190089DB83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0490EC126F3E1190089DB83 /* LaunchScreen.storyboard */; };
+		E085A56927289A6F005063D9 /* CoordinatorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A56827289A6F005063D9 /* CoordinatorProtocols.swift */; };
+		E085A56B27289ABF005063D9 /* TradingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A56A27289ABF005063D9 /* TradingCoordinator.swift */; };
+		E085A56F27289BD1005063D9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A56E27289BD1005063D9 /* MainTabBarController.swift */; };
+		E085A57127289BFA005063D9 /* CryptoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A57027289BFA005063D9 /* CryptoCoordinator.swift */; };
+		E085A57527289CAE005063D9 /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A57427289CAE005063D9 /* CryptoViewController.swift */; };
+		E085A57A27289D60005063D9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A57927289D60005063D9 /* SignInViewController.swift */; };
+		E085A57C27289D73005063D9 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A57B27289D73005063D9 /* AuthCoordinator.swift */; };
+		E085A57E27289DE8005063D9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A57D27289DE8005063D9 /* SignInView.swift */; };
+		E085A5B12729208E005063D9 /* TradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A5B02729208E005063D9 /* TradingView.swift */; };
+		E085A5B427292170005063D9 /* TradingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A5B32729216F005063D9 /* TradingTableViewCell.swift */; };
+		E085A5B92729235D005063D9 /* TradingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A5B82729235D005063D9 /* TradingModel.swift */; };
+		E085A5BC27292840005063D9 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A5BB27292840005063D9 /* WebSocketManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E0490EB326F3E1150089DB83 /* DiplomaDigitalHabbits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiplomaDigitalHabbits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0490EB626F3E1150089DB83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0490EB826F3E1150089DB83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E0490EBA26F3E1150089DB83 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		E0490EBA26F3E1150089DB83 /* TradingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingViewController.swift; sourceTree = "<group>"; };
 		E0490EBF26F3E1190089DB83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0490EC226F3E1190089DB83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0490EC426F3E1190089DB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E085A56827289A6F005063D9 /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
+		E085A56A27289ABF005063D9 /* TradingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingCoordinator.swift; sourceTree = "<group>"; };
+		E085A56E27289BD1005063D9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E085A57027289BFA005063D9 /* CryptoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoordinator.swift; sourceTree = "<group>"; };
+		E085A57427289CAE005063D9 /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
+		E085A57927289D60005063D9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E085A57B27289D73005063D9 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		E085A57D27289DE8005063D9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		E085A5B02729208E005063D9 /* TradingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingView.swift; sourceTree = "<group>"; };
+		E085A5B32729216F005063D9 /* TradingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingTableViewCell.swift; sourceTree = "<group>"; };
+		E085A5B82729235D005063D9 /* TradingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingModel.swift; sourceTree = "<group>"; };
+		E085A5BB27292840005063D9 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +78,138 @@
 		E0490EB526F3E1150089DB83 /* DiplomaDigitalHabbits */ = {
 			isa = PBXGroup;
 			children = (
-				E0490EB626F3E1150089DB83 /* AppDelegate.swift */,
-				E0490EB826F3E1150089DB83 /* SceneDelegate.swift */,
-				E0490EBA26F3E1150089DB83 /* StartViewController.swift */,
+				E085A5BA27292832005063D9 /* Managers */,
+				E085A57F27289E0A005063D9 /* System */,
+				E085A56727289A59005063D9 /* Coordinators */,
+				E085A56D27289BBD005063D9 /* CommonUI */,
+				E085A57327289C8A005063D9 /* Modules */,
 				E0490EBF26F3E1190089DB83 /* Assets.xcassets */,
 				E0490EC126F3E1190089DB83 /* LaunchScreen.storyboard */,
 				E0490EC426F3E1190089DB83 /* Info.plist */,
 			);
 			path = DiplomaDigitalHabbits;
+			sourceTree = "<group>";
+		};
+		E085A5662728991B005063D9 /* TradingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E085A5B627292342005063D9 /* Model */,
+				E085A5B72729234C005063D9 /* ViewModel */,
+				E085A5B52729232B005063D9 /* View */,
+			);
+			path = TradingScreen;
+			sourceTree = "<group>";
+		};
+		E085A56727289A59005063D9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				E085A56827289A6F005063D9 /* CoordinatorProtocols.swift */,
+				E085A56A27289ABF005063D9 /* TradingCoordinator.swift */,
+				E085A57027289BFA005063D9 /* CryptoCoordinator.swift */,
+				E085A57B27289D73005063D9 /* AuthCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		E085A56D27289BBD005063D9 /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				E085A56E27289BD1005063D9 /* MainTabBarController.swift */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		E085A57227289C7C005063D9 /* CryptoCurencyScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E085A57427289CAE005063D9 /* CryptoViewController.swift */,
+			);
+			path = CryptoCurencyScreen;
+			sourceTree = "<group>";
+		};
+		E085A57327289C8A005063D9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E085A57627289D43005063D9 /* Auth */,
+				E085A5662728991B005063D9 /* TradingScreen */,
+				E085A57227289C7C005063D9 /* CryptoCurencyScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E085A57627289D43005063D9 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				E085A57727289D4A005063D9 /* SignIn */,
+				E085A57827289D51005063D9 /* SignUp */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		E085A57727289D4A005063D9 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				E085A57927289D60005063D9 /* SignInViewController.swift */,
+				E085A57D27289DE8005063D9 /* SignInView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		E085A57827289D51005063D9 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		E085A57F27289E0A005063D9 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				E0490EB626F3E1150089DB83 /* AppDelegate.swift */,
+				E0490EB826F3E1150089DB83 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		E085A5B227292152005063D9 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				E085A5B32729216F005063D9 /* TradingTableViewCell.swift */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		E085A5B52729232B005063D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E085A5B227292152005063D9 /* CustomUI */,
+				E0490EBA26F3E1150089DB83 /* TradingViewController.swift */,
+				E085A5B02729208E005063D9 /* TradingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E085A5B627292342005063D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E085A5B82729235D005063D9 /* TradingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E085A5B72729234C005063D9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E085A5BA27292832005063D9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E085A5BB27292840005063D9 /* WebSocketManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +222,7 @@
 				E0490EAF26F3E1150089DB83 /* Sources */,
 				E0490EB026F3E1150089DB83 /* Frameworks */,
 				E0490EB126F3E1150089DB83 /* Resources */,
+				E085A5AF2729203E005063D9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -128,14 +277,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E085A5AF2729203E005063D9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E0490EAF26F3E1150089DB83 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0490EBB26F3E1150089DB83 /* StartViewController.swift in Sources */,
+				E085A57C27289D73005063D9 /* AuthCoordinator.swift in Sources */,
+				E0490EBB26F3E1150089DB83 /* TradingViewController.swift in Sources */,
+				E085A56927289A6F005063D9 /* CoordinatorProtocols.swift in Sources */,
+				E085A56F27289BD1005063D9 /* MainTabBarController.swift in Sources */,
+				E085A5B12729208E005063D9 /* TradingView.swift in Sources */,
 				E0490EB726F3E1150089DB83 /* AppDelegate.swift in Sources */,
 				E0490EB926F3E1150089DB83 /* SceneDelegate.swift in Sources */,
+				E085A57A27289D60005063D9 /* SignInViewController.swift in Sources */,
+				E085A57527289CAE005063D9 /* CryptoViewController.swift in Sources */,
+				E085A5B92729235D005063D9 /* TradingModel.swift in Sources */,
+				E085A57127289BFA005063D9 /* CryptoCoordinator.swift in Sources */,
+				E085A5BC27292840005063D9 /* WebSocketManager.swift in Sources */,
+				E085A57E27289DE8005063D9 /* SignInView.swift in Sources */,
+				E085A56B27289ABF005063D9 /* TradingCoordinator.swift in Sources */,
+				E085A5B427292170005063D9 /* TradingTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
