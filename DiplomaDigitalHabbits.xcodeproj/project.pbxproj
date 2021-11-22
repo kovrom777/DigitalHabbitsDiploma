@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E039969A274AA300001D5E74 /* AddNewRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0399699274AA2FF001D5E74 /* AddNewRecordViewController.swift */; };
+		E039969C274AA365001D5E74 /* AddNewRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E039969B274AA365001D5E74 /* AddNewRecordView.swift */; };
+		E039969F274AAC13001D5E74 /* NewRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E039969D274AAC13001D5E74 /* NewRecord.xcdatamodeld */; };
+		E03996A4274AB2C3001D5E74 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996A3274AB2C3001D5E74 /* CoreDataStack.swift */; };
+		E03996AC274AB9AD001D5E74 /* Stock+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996A8274AB9AD001D5E74 /* Stock+CoreDataClass.swift */; };
+		E03996AD274AB9AD001D5E74 /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996A9274AB9AD001D5E74 /* Stock+CoreDataProperties.swift */; };
+		E03996AE274AB9AD001D5E74 /* Crypto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996AA274AB9AD001D5E74 /* Crypto+CoreDataClass.swift */; };
+		E03996AF274AB9AD001D5E74 /* Crypto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996AB274AB9AD001D5E74 /* Crypto+CoreDataProperties.swift */; };
+		E03996B4274AE3F5001D5E74 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996B3274AE3F5001D5E74 /* FileManager.swift */; };
+		E03996B6274AE41D001D5E74 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996B5274AE41D001D5E74 /* UserModel.swift */; };
+		E03996B9274AE8C9001D5E74 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996B8274AE8C9001D5E74 /* UITextField.swift */; };
+		E03996BE274AEEC7001D5E74 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996BD274AEEC7001D5E74 /* SettingsView.swift */; };
+		E03996C0274AEECF001D5E74 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996BF274AEECF001D5E74 /* SettingsViewController.swift */; };
+		E03996C3274AEFFB001D5E74 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996C2274AEFFB001D5E74 /* SettingsModel.swift */; };
+		E03996C5274AF43C001D5E74 /* URLSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996C4274AF43C001D5E74 /* URLSessionManager.swift */; };
+		E03996C8274AF5A3001D5E74 /* BaseEndPointClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996C7274AF5A3001D5E74 /* BaseEndPointClass.swift */; };
+		E03996CA274AF9BA001D5E74 /* NetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996C9274AF9BA001D5E74 /* NetworkServiceError.swift */; };
+		E03996CC274AFA21001D5E74 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996CB274AFA21001D5E74 /* NetworkServiceProtocol.swift */; };
+		E03996D1274B0173001D5E74 /* StockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996D0274B0173001D5E74 /* StockResponse.swift */; };
 		E0490EB726F3E1150089DB83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0490EB626F3E1150089DB83 /* AppDelegate.swift */; };
 		E0490EB926F3E1150089DB83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0490EB826F3E1150089DB83 /* SceneDelegate.swift */; };
 		E0490EBB26F3E1150089DB83 /* TradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0490EBA26F3E1150089DB83 /* TradingViewController.swift */; };
@@ -27,6 +46,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E0399699274AA2FF001D5E74 /* AddNewRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRecordViewController.swift; sourceTree = "<group>"; };
+		E039969B274AA365001D5E74 /* AddNewRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRecordView.swift; sourceTree = "<group>"; };
+		E039969E274AAC13001D5E74 /* NewRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewRecord.xcdatamodel; sourceTree = "<group>"; };
+		E03996A3274AB2C3001D5E74 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E03996A8274AB9AD001D5E74 /* Stock+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E03996A9274AB9AD001D5E74 /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E03996AA274AB9AD001D5E74 /* Crypto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Crypto+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E03996AB274AB9AD001D5E74 /* Crypto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Crypto+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E03996B3274AE3F5001D5E74 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		E03996B5274AE41D001D5E74 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E03996B8274AE8C9001D5E74 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		E03996BD274AEEC7001D5E74 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E03996BF274AEECF001D5E74 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E03996C2274AEFFB001D5E74 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		E03996C4274AF43C001D5E74 /* URLSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionManager.swift; sourceTree = "<group>"; };
+		E03996C7274AF5A3001D5E74 /* BaseEndPointClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEndPointClass.swift; sourceTree = "<group>"; };
+		E03996C9274AF9BA001D5E74 /* NetworkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceError.swift; sourceTree = "<group>"; };
+		E03996CB274AFA21001D5E74 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		E03996D0274B0173001D5E74 /* StockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockResponse.swift; sourceTree = "<group>"; };
 		E0490EB326F3E1150089DB83 /* DiplomaDigitalHabbits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiplomaDigitalHabbits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0490EB626F3E1150089DB83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0490EB826F3E1150089DB83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +97,117 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E0399697274AA2DD001D5E74 /* AddNewRecord */ = {
+			isa = PBXGroup;
+			children = (
+				E0399698274AA2F0001D5E74 /* View */,
+			);
+			path = AddNewRecord;
+			sourceTree = "<group>";
+		};
+		E0399698274AA2F0001D5E74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0399699274AA2FF001D5E74 /* AddNewRecordViewController.swift */,
+				E039969B274AA365001D5E74 /* AddNewRecordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E03996A2274AB27A001D5E74 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E03996A5274AB494001D5E74 /* CoreDataModels */,
+				E03996A3274AB2C3001D5E74 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		E03996A5274AB494001D5E74 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				E03996A8274AB9AD001D5E74 /* Stock+CoreDataClass.swift */,
+				E03996A9274AB9AD001D5E74 /* Stock+CoreDataProperties.swift */,
+				E03996AA274AB9AD001D5E74 /* Crypto+CoreDataClass.swift */,
+				E03996AB274AB9AD001D5E74 /* Crypto+CoreDataProperties.swift */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		E03996B0274AE325001D5E74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E085A57927289D60005063D9 /* SignInViewController.swift */,
+				E085A57D27289DE8005063D9 /* SignInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E03996B1274AE32C001D5E74 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E03996B2274AE332001D5E74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E03996B5274AE41D001D5E74 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E03996B7274AE8BA001D5E74 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E03996B8274AE8C9001D5E74 /* UITextField.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E03996BB274AEEB2001D5E74 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E03996C1274AEFF2001D5E74 /* Model */,
+				E03996BC274AEEBB001D5E74 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E03996BC274AEEBB001D5E74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E03996BD274AEEC7001D5E74 /* SettingsView.swift */,
+				E03996BF274AEECF001D5E74 /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E03996C1274AEFF2001D5E74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E03996C2274AEFFB001D5E74 /* SettingsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E03996C6274AF595001D5E74 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				E03996C7274AF5A3001D5E74 /* BaseEndPointClass.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		E03996CD274AFD4F001D5E74 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				E03996D0274B0173001D5E74 /* StockResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
 		E0490EAA26F3E1150089DB83 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +227,9 @@
 		E0490EB526F3E1150089DB83 /* DiplomaDigitalHabbits */ = {
 			isa = PBXGroup;
 			children = (
+				E03996C6274AF595001D5E74 /* EndPoint */,
+				E03996B7274AE8BA001D5E74 /* Extensions */,
+				E03996A2274AB27A001D5E74 /* CoreData */,
 				E085A5BA27292832005063D9 /* Managers */,
 				E085A57F27289E0A005063D9 /* System */,
 				E085A56727289A59005063D9 /* Coordinators */,
@@ -86,6 +238,7 @@
 				E0490EBF26F3E1190089DB83 /* Assets.xcassets */,
 				E0490EC126F3E1190089DB83 /* LaunchScreen.storyboard */,
 				E0490EC426F3E1190089DB83 /* Info.plist */,
+				E039969D274AAC13001D5E74 /* NewRecord.xcdatamodeld */,
 			);
 			path = DiplomaDigitalHabbits;
 			sourceTree = "<group>";
@@ -130,9 +283,11 @@
 		E085A57327289C8A005063D9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E03996BB274AEEB2001D5E74 /* Settings */,
 				E085A57627289D43005063D9 /* Auth */,
 				E085A5662728991B005063D9 /* TradingScreen */,
 				E085A57227289C7C005063D9 /* CryptoCurencyScreen */,
+				E0399697274AA2DD001D5E74 /* AddNewRecord */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -149,8 +304,9 @@
 		E085A57727289D4A005063D9 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				E085A57927289D60005063D9 /* SignInViewController.swift */,
-				E085A57D27289DE8005063D9 /* SignInView.swift */,
+				E03996B2274AE332001D5E74 /* Model */,
+				E03996B1274AE32C001D5E74 /* ViewModel */,
+				E03996B0274AE325001D5E74 /* View */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -207,7 +363,12 @@
 		E085A5BA27292832005063D9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E03996CD274AFD4F001D5E74 /* Responses */,
 				E085A5BB27292840005063D9 /* WebSocketManager.swift */,
+				E03996B3274AE3F5001D5E74 /* FileManager.swift */,
+				E03996C4274AF43C001D5E74 /* URLSessionManager.swift */,
+				E03996C9274AF9BA001D5E74 /* NetworkServiceError.swift */,
+				E03996CB274AFA21001D5E74 /* NetworkServiceProtocol.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -303,18 +464,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				E085A57C27289D73005063D9 /* AuthCoordinator.swift in Sources */,
+				E03996CA274AF9BA001D5E74 /* NetworkServiceError.swift in Sources */,
 				E0490EBB26F3E1150089DB83 /* TradingViewController.swift in Sources */,
 				E085A56927289A6F005063D9 /* CoordinatorProtocols.swift in Sources */,
+				E039969F274AAC13001D5E74 /* NewRecord.xcdatamodeld in Sources */,
+				E03996AE274AB9AD001D5E74 /* Crypto+CoreDataClass.swift in Sources */,
+				E03996B9274AE8C9001D5E74 /* UITextField.swift in Sources */,
+				E03996AF274AB9AD001D5E74 /* Crypto+CoreDataProperties.swift in Sources */,
+				E03996AC274AB9AD001D5E74 /* Stock+CoreDataClass.swift in Sources */,
+				E03996AD274AB9AD001D5E74 /* Stock+CoreDataProperties.swift in Sources */,
+				E03996B6274AE41D001D5E74 /* UserModel.swift in Sources */,
 				E085A56F27289BD1005063D9 /* MainTabBarController.swift in Sources */,
 				E085A5B12729208E005063D9 /* TradingView.swift in Sources */,
 				E0490EB726F3E1150089DB83 /* AppDelegate.swift in Sources */,
 				E0490EB926F3E1150089DB83 /* SceneDelegate.swift in Sources */,
 				E085A57A27289D60005063D9 /* SignInViewController.swift in Sources */,
+				E039969A274AA300001D5E74 /* AddNewRecordViewController.swift in Sources */,
 				E085A57527289CAE005063D9 /* CryptoViewController.swift in Sources */,
+				E03996B4274AE3F5001D5E74 /* FileManager.swift in Sources */,
 				E085A5B92729235D005063D9 /* TradingModel.swift in Sources */,
+				E03996CC274AFA21001D5E74 /* NetworkServiceProtocol.swift in Sources */,
 				E085A57127289BFA005063D9 /* CryptoCoordinator.swift in Sources */,
 				E085A5BC27292840005063D9 /* WebSocketManager.swift in Sources */,
+				E03996BE274AEEC7001D5E74 /* SettingsView.swift in Sources */,
+				E03996A4274AB2C3001D5E74 /* CoreDataStack.swift in Sources */,
+				E03996C0274AEECF001D5E74 /* SettingsViewController.swift in Sources */,
+				E03996C8274AF5A3001D5E74 /* BaseEndPointClass.swift in Sources */,
+				E03996C5274AF43C001D5E74 /* URLSessionManager.swift in Sources */,
 				E085A57E27289DE8005063D9 /* SignInView.swift in Sources */,
+				E03996D1274B0173001D5E74 /* StockResponse.swift in Sources */,
+				E03996C3274AEFFB001D5E74 /* SettingsModel.swift in Sources */,
+				E039969C274AA365001D5E74 /* AddNewRecordView.swift in Sources */,
 				E085A56B27289ABF005063D9 /* TradingCoordinator.swift in Sources */,
 				E085A5B427292170005063D9 /* TradingTableViewCell.swift in Sources */,
 			);
@@ -512,6 +692,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E039969D274AAC13001D5E74 /* NewRecord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E039969E274AAC13001D5E74 /* NewRecord.xcdatamodel */,
+			);
+			currentVersion = E039969E274AAC13001D5E74 /* NewRecord.xcdatamodel */;
+			path = NewRecord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E0490EAB26F3E1150089DB83 /* Project object */;
 }

@@ -34,8 +34,4 @@ class AuthCoordinator: Coordinator{
             self.navigationController.pushViewController(signInVC, animated: true)
         }
     }
-    
-    
-    
-    
 }

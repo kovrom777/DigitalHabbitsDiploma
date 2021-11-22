@@ -14,10 +14,9 @@ class TradingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .white
         addSubview(tableView)
-        
     }
     
     

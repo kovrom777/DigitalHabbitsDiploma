@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Crypto" representedClassName=".Crypto" syncable="YES">
+        <attribute name="dateOfPurchase" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tokenCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tokenName" optional="YES" attributeType="String"/>
+        <attribute name="totalAmount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Stock" representedClassName=".Stock" syncable="YES">
+        <attribute name="boughtPrice" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="dateOfPurchase" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="stockName" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Crypto" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Stock" positionX="-54" positionY="36" width="128" height="74"/>
+    </elements>
+</model>
