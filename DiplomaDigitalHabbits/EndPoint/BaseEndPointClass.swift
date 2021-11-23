@@ -10,7 +10,7 @@ import Foundation
 enum Constants{
     
     enum StockRequest {
-        static let baseURLForStock = "https://api.twelvedata.com/time_series"
+        static let baseURL = "https://api.twelvedata.com/time_series"
     }
     
 }

@@ -7,30 +7,27 @@
 
 import Foundation
 
-struct TradingModel: Decodable{
-    
-    let meta: Meta
-    let values: [Value]
+struct TradingModel: Decodable {
+    let meta: Meta?
+    let values: [Value]?
     let status: String
     
+    enum Keys: String, CodingKey {
+        case meta = "meta"
+        case values = "values"
+        case status = "status"
+    }
 }
 
 struct Meta: Decodable {
     let symbol: String
     let interval: String
-    let currency: String
-    let exchangeTimezone: String
+//    let currency: String
+//    let exchangeTimezone: String
     let exchange: String
     let type: String
     
-    enum Keys: CodingKey {
-        case symbol
-        case interval
-        case currency
-        case exchangeTimezone
-        case exchange
-        case type
-    }
+    
 }
 
 struct Value: Decodable {
@@ -39,5 +36,14 @@ struct Value: Decodable {
     let high: String
     let low: String
     let close: String
-    let volume: String
+//    let volume: String
+
+//    enum Keys: String, CodingKey {
+//        case datetime = "datetime"
+//        case open = "open"
+//        case high = "high"
+//        case low = "low"
+//        case close = "close"
+//        case volume = "volume"
+//    }
 }

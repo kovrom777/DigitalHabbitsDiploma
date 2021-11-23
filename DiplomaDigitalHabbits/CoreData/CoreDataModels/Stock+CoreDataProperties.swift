@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Stock {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Stock> {
@@ -19,6 +18,7 @@ extension Stock {
     @NSManaged public var stockName: String?
     @NSManaged public var boughtPrice: Float
     @NSManaged public var dateOfPurchase: Date?
+    @NSManaged public var stockCount: Int16
 
 }
 

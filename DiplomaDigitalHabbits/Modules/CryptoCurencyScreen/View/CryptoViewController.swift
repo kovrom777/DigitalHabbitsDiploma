@@ -1,23 +1,22 @@
 //
-//  ViewController.swift
+//  CryptoViewController.swift
 //  DiplomaDigitalHabbits
 //
-//  Created by Роман Ковайкин on 16.09.2021.
+//  Created by Роман Ковайкин on 26.10.2021.
 //
 
 import UIKit
-import CoreData
 
-class TradingViewController: UIViewController {
-    
+class CryptoViewController: UIViewController {
+        
     // MARK: - Variables
-    weak var coordinator: TradingCoordinator?
-    let contentView = TradingView()
+    let contentView = CryptoView()
+    weak var coordinator: CryptoCoordinator?
     let coreDataManager = CoreDataStack.shared
-    var stocks: [Stock]?
-    private var service: NetworkServiceProtocol
-    private var stockData = [TradingModel]()
-
+    let service: NetworkServiceProtocol
+    var crypto: [Crypto]?
+    var cryptoData = [TradingModel]()
+    
     // MARK: - Init
     init(service: NetworkServiceProtocol) {
         self.service = service
@@ -27,62 +26,38 @@ class TradingViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    // MARK: - View controller LifeCycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        loadInfo()
-        contentView.tableView.reloadData()
-        if SettingsModel.shared.useWebSocket {
-            toggleWebSocket()
-        }
-    }
-
+    
+    // MARK: - ViewController lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
         loadInfo()
+        configureView()
     }
 
     override func loadView() {
         view = contentView
     }
 
-    // MARK: - Private methods
-    private func getData() {
-        WebSocketManager.shared.receiveData { model in
-            print(model)
-        }
-    }
-
-    private func loadInfo () {
-        stocks = coreDataManager.loadDataForStocks()
-        stockData.removeAll()
-        for stock in stocks ?? [] {
-            service.requestPrice(symbol: stock.stockName ?? "") { [weak self] result in
-                guard let self = self else {return}
+    // MARK: - PrivateMethods
+    private func loadInfo() {
+        crypto = coreDataManager.loadDataForCrypto()
+        for token in crypto ?? [] {
+            let token = "\(token.tokenName?.replacingOccurrences(of: " ", with: "").uppercased() ?? "")/USD"
+            service.requestPrice(symbol: "\(token)") { result in
                 switch result {
-                case .failure(let err):
-                    print(err.message)
-                    DispatchQueue.main.async {
-                        AlertService.presentErrorAlert(vc: self, title: "Ошибка", message: err.message)
-                    }
                 case .success(let data):
-                    self.stockData.append(data!)
-                    if self.stockData.count == self.stocks?.count ?? 0 {
+                    self.cryptoData.append(data!)
+                    if self.cryptoData.count == self.crypto?.count ?? 0 {
                         DispatchQueue.main.async {
                             self.contentView.tableView.reloadData()
                         }
                     }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        AlertService.presentErrorAlert(vc: self, title: "Ошибка", message: error.message)
+                    }
                 }
             }
-        }
-    }
-
-    private func toggleWebSocket() {
-        if SettingsModel.shared.useWebSocket {
-            WebSocketManager.shared.connectToWebSocket()
-            WebSocketManager.shared.subscribeOnSMTH()
         }
     }
 
@@ -121,55 +96,51 @@ class TradingViewController: UIViewController {
     }
 
     @objc private func plusButtonTapped() {
-        self.coordinator?.presentAddNewRecord(viewController: self, isStock: true)
+        self.coordinator?.presentAddNewRecord(viewController: self, isStock: false)
     }
 }
 
-// MARK: - Extension
-
-extension TradingViewController: UITableViewDelegate, UITableViewDataSource {
+extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stocks?.count ?? 0
+        return crypto?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TradingTableViewCell.cellId, for: indexPath) as? TradingTableViewCell else {
             return UITableViewCell()
         }
-        guard let dopCrypto = stocks else {
-            return UITableViewCell()
-        }
-        guard let stockName = dopCrypto[indexPath.row].stockName else {
+        guard let dopCrypto = crypto else {return UITableViewCell()}
+        guard let cryptoName = dopCrypto[indexPath.row].tokenName else {
             return UITableViewCell()
         }
         var currentPrice = 0.0
-        for stock in stockData {
-            if stock.meta?.symbol ?? "" == stockName.replacingOccurrences(of: " ", with: "").uppercased() {
-                currentPrice = Double(stock.values?.first?.open ?? "") ?? 0.0
+        for crypto in cryptoData {
+            if crypto.meta?.symbol ?? "" == "\(cryptoName.replacingOccurrences(of: " ", with: "").uppercased())/USD" {
+                currentPrice = Double(crypto.values?.first?.open ?? "") ?? 0.0
             }
         }
-        cell.setUpCell(data: dopCrypto[indexPath.row], currentPriceValue: currentPrice)
+        cell.setUpCellForCrypto(data: dopCrypto[indexPath.row], currentPriceValue: currentPrice)
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let stock = stocks?[indexPath.row] else {
+            guard let crypto = crypto?[indexPath.row] else {
                 return
             }
-            coreDataManager.deleteStock(stock: stock, onSuccess: {
+            coreDataManager.deleteCrypto(crypto: crypto){
                 self.loadInfo()
                 self.contentView.tableView.reloadData()
-            })
+            }
         }
     }
 }
 
-extension TradingViewController: AddNewRecordDelegate {
+extension CryptoViewController: AddNewRecordDelegate {
     func updateVC() {
         loadInfo()
         contentView.tableView.reloadData()

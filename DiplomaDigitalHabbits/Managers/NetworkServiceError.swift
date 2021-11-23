@@ -12,6 +12,7 @@ enum NetworkServiceError: Error {
     case network
     case decodable
     case unknown
+    case runOutOfRequest
 
     var message: String {
         switch self {
@@ -21,6 +22,8 @@ enum NetworkServiceError: Error {
             return "Упал запрос"
         case .decodable:
             return "Не смогли распарсить"
+        case .runOutOfRequest:
+            return "Превышено количество запросов в минуту"
         case .unknown:
             return "?????"
         }

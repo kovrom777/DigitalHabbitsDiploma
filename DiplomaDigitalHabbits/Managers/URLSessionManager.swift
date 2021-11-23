@@ -8,10 +8,9 @@
 import Foundation
 
 class URLSessionManager {
- 
     let session: URLSession = .shared
     private let decoder: JSONDecoder = {
-        $0.keyDecodingStrategy = .useDefaultKeys
+        $0.keyDecodingStrategy = .convertFromSnakeCase
         return $0
     }(JSONDecoder())
     private var stockResponse: TradingModel?
@@ -28,13 +27,13 @@ class URLSessionManager {
 
 extension URLSessionManager: NetworkServiceProtocol {
     typealias Handler = (Data?, URLResponse?, Error?) -> Void
-    
+
     func requestPrice(symbol: String, completion: @escaping (PriceHandler) -> Void) {
         // request
-        var components = URLComponents(string: Constants.StockRequest.baseURLForStock)
+        var components = URLComponents(string: Constants.StockRequest.baseURL)
         components?.queryItems = [
-            URLQueryItem(name: "symbol", value: symbol),
-            URLQueryItem(name: "interval", value: "1min"),
+            URLQueryItem(name: "symbol", value: symbol.replacingOccurrences(of: " ", with: "")),
+            URLQueryItem(name: "interval", value: "5min"),
             URLQueryItem(name: "apikey", value: "e4e382a154f846648a9c8c327aa703a6")
         ]
         guard let url = components?.url else {return completion(.failure(.unknown))}
@@ -47,9 +46,13 @@ extension URLSessionManager: NetworkServiceProtocol {
                 let data = try self.httpResponse(data: rawData, response: response)
                 self.stockResponse = try self.decoder.decode(TradingModel.self, from: data)
                 print("<--------------")
-                print(response?.url)
-                print(data)
+                print(response?.url ?? "")
+                if self.stockResponse?.status == "error"{
+                    completion(.failure(.runOutOfRequest))
+                }
+                completion(.success(self.stockResponse))
             } catch {
+                print(error)
                 completion(.failure((error as? NetworkServiceError) ?? .unknown))
             }
         }

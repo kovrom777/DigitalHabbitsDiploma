@@ -10,10 +10,11 @@
     <entity name="Stock" representedClassName=".Stock" syncable="YES">
         <attribute name="boughtPrice" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="dateOfPurchase" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="stockCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="stockName" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Crypto" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="Stock" positionX="-54" positionY="36" width="128" height="74"/>
+        <element name="Stock" positionX="-54" positionY="36" width="128" height="89"/>
     </elements>
 </model>

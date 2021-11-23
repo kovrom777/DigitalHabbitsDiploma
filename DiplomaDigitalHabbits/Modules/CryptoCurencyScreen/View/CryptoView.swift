@@ -1,13 +1,13 @@
 //
-//  TradingView.swift
+//  CryptoView.swift
 //  DiplomaDigitalHabbits
 //
-//  Created by Роман Ковайкин on 27.10.2021.
+//  Created by Роман Ковайкин on 23.11.2021.
 //
 
 import UIKit
 
-class TradingView: UIView {
+class CryptoView: UIView {
     // MARK: - Variables
     let tableView = UITableView()
     let refreshControll = UIRefreshControl()
@@ -36,4 +36,5 @@ class TradingView: UIView {
         tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
+
 }

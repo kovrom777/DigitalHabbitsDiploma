@@ -43,6 +43,8 @@
 		E085A5B427292170005063D9 /* TradingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A5B32729216F005063D9 /* TradingTableViewCell.swift */; };
 		E085A5B92729235D005063D9 /* TradingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A5B82729235D005063D9 /* TradingModel.swift */; };
 		E085A5BC27292840005063D9 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E085A5BB27292840005063D9 /* WebSocketManager.swift */; };
+		E0EB32D7274CE225002E51E1 /* AlertServicce.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EB32D6274CE225002E51E1 /* AlertServicce.swift */; };
+		E0EB32D9274CEF3E002E51E1 /* CryptoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EB32D8274CEF3E002E51E1 /* CryptoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		E085A5B32729216F005063D9 /* TradingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingTableViewCell.swift; sourceTree = "<group>"; };
 		E085A5B82729235D005063D9 /* TradingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingModel.swift; sourceTree = "<group>"; };
 		E085A5BB27292840005063D9 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		E0EB32D6274CE225002E51E1 /* AlertServicce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertServicce.swift; sourceTree = "<group>"; };
+		E0EB32D8274CEF3E002E51E1 /* CryptoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,7 @@
 		E0490EB526F3E1150089DB83 /* DiplomaDigitalHabbits */ = {
 			isa = PBXGroup;
 			children = (
+				E0EB32D5274CE21A002E51E1 /* Services */,
 				E03996C6274AF595001D5E74 /* EndPoint */,
 				E03996B7274AE8BA001D5E74 /* Extensions */,
 				E03996A2274AB27A001D5E74 /* CoreData */,
@@ -275,7 +280,7 @@
 		E085A57227289C7C005063D9 /* CryptoCurencyScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E085A57427289CAE005063D9 /* CryptoViewController.swift */,
+				E0EB32DA274CEF42002E51E1 /* View */,
 			);
 			path = CryptoCurencyScreen;
 			sourceTree = "<group>";
@@ -371,6 +376,23 @@
 				E03996CB274AFA21001D5E74 /* NetworkServiceProtocol.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		E0EB32D5274CE21A002E51E1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E0EB32D6274CE225002E51E1 /* AlertServicce.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E0EB32DA274CEF42002E51E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E085A57427289CAE005063D9 /* CryptoViewController.swift */,
+				E0EB32D8274CEF3E002E51E1 /* CryptoView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,10 +515,12 @@
 				E03996C5274AF43C001D5E74 /* URLSessionManager.swift in Sources */,
 				E085A57E27289DE8005063D9 /* SignInView.swift in Sources */,
 				E03996D1274B0173001D5E74 /* StockResponse.swift in Sources */,
+				E0EB32D7274CE225002E51E1 /* AlertServicce.swift in Sources */,
 				E03996C3274AEFFB001D5E74 /* SettingsModel.swift in Sources */,
 				E039969C274AA365001D5E74 /* AddNewRecordView.swift in Sources */,
 				E085A56B27289ABF005063D9 /* TradingCoordinator.swift in Sources */,
 				E085A5B427292170005063D9 /* TradingTableViewCell.swift in Sources */,
+				E0EB32D9274CEF3E002E51E1 /* CryptoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

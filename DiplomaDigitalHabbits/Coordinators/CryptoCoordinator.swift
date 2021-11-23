@@ -16,14 +16,24 @@ class CryptoCoordinator: Coordinator{
         self.navigationController = navigationController
     }
     
+    func presentAddNewRecord (viewController: CryptoViewController, isStock: Bool) {
+        let recordVc = AddNewRecordViewController(isStock: isStock)
+        recordVc.delegate = viewController
+        viewController.present(recordVc, animated: true, completion: nil)
+    }
+
+    func presentSettingsScreen() {
+        let viewController = SettingsViewController()
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
+    
     func start() {
         DispatchQueue.main.async {
             self.navigationController.isNavigationBarHidden = false
-            let cryptoVC = CryptoViewController()
+            let service = URLSessionManager()
+            let cryptoVC = CryptoViewController(service: service)
             cryptoVC.coordinator = self
             self.navigationController.pushViewController(cryptoVC, animated: true)
         }
     }
-    
-    
 }

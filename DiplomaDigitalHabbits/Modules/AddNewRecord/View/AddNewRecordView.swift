@@ -13,7 +13,6 @@ class AddNewRecordView: UIView {
     let datePicker = UIDatePicker()
     let boughtAmount = UITextField()
     let tokenAmount = UITextField()
-    let totalAmount = UILabel()
     let addNewRecordButton = UIButton()
     
     override init(frame: CGRect) {
@@ -47,13 +46,6 @@ class AddNewRecordView: UIView {
         tokenAmount.translatesAutoresizingMaskIntoConstraints = false
         tokenAmount.keyboardType = .numberPad
         addSubview(tokenAmount)
-        
-        totalAmount.textColor = .white
-        totalAmount.text = "10.00 usd"
-        totalAmount.textAlignment = .center
-        totalAmount.font = UIFont.boldSystemFont(ofSize: 16)
-        totalAmount.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(totalAmount)
 
         addNewRecordButton.setTitle("Сохранить Запись", for: .normal)
         addNewRecordButton.setTitleColor(.black, for: .normal)
@@ -87,11 +79,6 @@ class AddNewRecordView: UIView {
         tokenAmount.leadingAnchor.constraint(equalTo: tokenLabel.leadingAnchor).isActive = true
         tokenAmount.trailingAnchor.constraint(equalTo: tokenLabel.trailingAnchor).isActive = true
         tokenAmount.heightAnchor.constraint(equalToConstant: 40).isActive = true
-
-        totalAmount.topAnchor.constraint(equalTo: tokenAmount.bottomAnchor, constant: 16).isActive = true
-        totalAmount.leadingAnchor.constraint(equalTo: tokenAmount.leadingAnchor).isActive = true
-        totalAmount.trailingAnchor.constraint(equalTo: tokenAmount.trailingAnchor).isActive = true
-        totalAmount.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
         addNewRecordButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -50).isActive = true
         addNewRecordButton.leadingAnchor.constraint(equalTo: tokenLabel.leadingAnchor).isActive = true

@@ -13,6 +13,7 @@ class WebSocketManager{
     let apiKey = "e4e382a154f846648a9c8c327aa703a6"
 
     private var data: TradingModel?
+    let session = URLSession.shared
 
     let webSocketTask = URLSession(configuration: .default).webSocketTask(with: URL(string: "wss://ws.twelvedata.com/v1/quotes/price?apikey=e4e382a154f846648a9c8c327aa703a6")!)
 

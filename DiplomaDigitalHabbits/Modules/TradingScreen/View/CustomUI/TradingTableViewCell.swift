@@ -53,13 +53,21 @@ class TradingTableViewCell: UITableViewCell {
 
     // MARK: - Public methods
 
-    public func setUpCell(data: Crypto) {
-        price.text = "\(data.price)$"
-        label.text = data.tokenName
-        totalAmount.text = "\(data.tokenCount) шт"
-        currentPrice.text = "0.000012"
+    public func setUpCell(data: Stock, currentPriceValue: Double) {
+        price.text = "\(data.boughtPrice)$"
+        label.text = data.stockName
+        totalAmount.text = "\(data.stockCount) шт"
+        print(currentPriceValue)
+        currentPrice.text = String(currentPriceValue)
     }
 
+    public func setUpCellForCrypto (data: Crypto, currentPriceValue: Double) {
+        price.text = "\(data.price)"
+        label.text = data.tokenName
+        totalAmount.text = "\(data.tokenCount) шт"
+        print(currentPrice)
+        currentPrice.text = "\(currentPriceValue)"
+    }
     // MARK: - Private Methods
 
     private func makeConstraints() {

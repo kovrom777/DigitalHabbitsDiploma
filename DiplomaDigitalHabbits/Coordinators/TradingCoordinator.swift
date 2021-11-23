@@ -15,8 +15,9 @@ class TradingCoordinator: Coordinator {
         self.navigationController = navigationController
     }
 
-    func presentAddNewRecord (viewController: UIViewController) {
-        let recordVc = AddNewRecordViewController()
+    func presentAddNewRecord (viewController: TradingViewController, isStock: Bool) {
+        let recordVc = AddNewRecordViewController(isStock: isStock)
+        recordVc.delegate = viewController
         viewController.present(recordVc, animated: true, completion: nil)
     }
 

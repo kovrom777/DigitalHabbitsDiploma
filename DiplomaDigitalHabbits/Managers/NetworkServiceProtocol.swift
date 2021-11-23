@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias PriceHandler = Result<Void, NetworkServiceError>
+typealias PriceHandler = Result<TradingModel?, NetworkServiceError>
 
 protocol NetworkServiceProtocol {
     func requestPrice (symbol: String, completion: @escaping (PriceHandler) -> Void)
