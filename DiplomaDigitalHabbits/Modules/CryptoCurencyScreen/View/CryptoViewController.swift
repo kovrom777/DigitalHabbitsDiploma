@@ -8,7 +8,7 @@
 import UIKit
 
 class CryptoViewController: UIViewController {
-        
+
     // MARK: - Variables
     let contentView = CryptoView()
     weak var coordinator: CryptoCoordinator?
@@ -16,7 +16,7 @@ class CryptoViewController: UIViewController {
     let service: NetworkServiceProtocol
     var crypto: [Crypto]?
     var cryptoData = [TradingModel]()
-    
+
     // MARK: - Init
     init(service: NetworkServiceProtocol) {
         self.service = service
@@ -26,7 +26,7 @@ class CryptoViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - ViewController lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,19 +43,18 @@ class CryptoViewController: UIViewController {
         crypto = coreDataManager.loadDataForCrypto()
         for token in crypto ?? [] {
             let token = "\(token.tokenName?.replacingOccurrences(of: " ", with: "").uppercased() ?? "")/USD"
-            service.requestPrice(symbol: "\(token)") { result in
+            let endPoint = TradingPriceEndPoint(
+                symbol: "\(token)",
+                key: coordinator?.keyChain.object(for: GenericKey(key: "key")) ?? "")
+            service.requestWithEndPoint(endPoint: endPoint) { result in
                 switch result {
                 case .success(let data):
                     self.cryptoData.append(data!)
                     if self.cryptoData.count == self.crypto?.count ?? 0 {
-                        DispatchQueue.main.async {
-                            self.contentView.tableView.reloadData()
-                        }
+                        self.contentView.tableView.reloadData()
                     }
                 case .failure(let error):
-                    DispatchQueue.main.async {
-                        AlertService.presentErrorAlert(vc: self, title: "Ошибка", message: error.message)
-                    }
+                    AlertService.presentErrorAlert(vc: self, title: "Ошибка", message: error.message)
                 }
             }
         }
@@ -122,7 +121,21 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setUpCellForCrypto(data: dopCrypto[indexPath.row], currentPriceValue: currentPrice)
         return cell
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let stockName = cryptoData[indexPath.row].meta?.symbol
+        var dataSet = [CGFloat]()
+
+        cryptoData[indexPath.row].values?.forEach({
+            let dooo = Double($0.close)
+            dataSet.append(CGFloat(dooo ?? 0.0))
+        })
+        print(dataSet)
+
+        coordinator?.showCharts(viewcontroller: self, dataSet: dataSet, title: stockName ?? "")
+    }
+
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -132,7 +145,7 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
             guard let crypto = crypto?[indexPath.row] else {
                 return
             }
-            coreDataManager.deleteCrypto(crypto: crypto){
+            coreDataManager.deleteCrypto(crypto: crypto) {
                 self.loadInfo()
                 self.contentView.tableView.reloadData()
             }

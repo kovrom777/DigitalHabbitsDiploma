@@ -14,7 +14,7 @@ class URLSessionManager {
         return $0
     }(JSONDecoder())
     private var stockResponse: TradingModel?
-    
+
     private func httpResponse (data: Data?, response: URLResponse?) throws -> Data {
         guard let httpResponse = response as? HTTPURLResponse,
               (200..<300).contains(httpResponse.statusCode),
@@ -28,19 +28,12 @@ class URLSessionManager {
 extension URLSessionManager: NetworkServiceProtocol {
     typealias Handler = (Data?, URLResponse?, Error?) -> Void
 
-    func requestPrice(symbol: String, completion: @escaping (PriceHandler) -> Void) {
-        // request
-        var components = URLComponents(string: Constants.StockRequest.baseURL)
-        components?.queryItems = [
-            URLQueryItem(name: "symbol", value: symbol.replacingOccurrences(of: " ", with: "")),
-            URLQueryItem(name: "interval", value: "5min"),
-            URLQueryItem(name: "apikey", value: "e4e382a154f846648a9c8c327aa703a6")
-        ]
-        guard let url = components?.url else {return completion(.failure(.unknown))}
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        print("-------------------------->")
-        print("\(request.httpMethod ?? "") \(url)")
+    func requestWithEndPoint(endPoint: EndPoint, completion: @escaping (PriceHandler) -> Void) {
+        guard let url = endPoint.components.url else {
+            completion(.failure(.unknown))
+            return
+        }
+        let request = URLRequest(url: url)
         let handler: Handler = { rawData, response, error in
             do {
                 let data = try self.httpResponse(data: rawData, response: response)
@@ -48,12 +41,73 @@ extension URLSessionManager: NetworkServiceProtocol {
                 print("<--------------")
                 print(response?.url ?? "")
                 if self.stockResponse?.status == "error"{
-                    completion(.failure(.runOutOfRequest))
+                    DispatchQueue.main.async {
+                        completion(.failure(.runOutOfRequest))
+                    }
                 }
-                completion(.success(self.stockResponse))
+                DispatchQueue.main.async {
+                    completion(.success(self.stockResponse))
+                }
             } catch {
                 print(error)
-                completion(.failure((error as? NetworkServiceError) ?? .unknown))
+                DispatchQueue.main.async {
+                    completion(.failure((error as? NetworkServiceError) ?? .unknown))
+                }
+            }
+        }
+        session.dataTask(with: request, completionHandler: handler).resume()
+    }
+    
+    func process (endPoint: EndPoint, completion: @escaping (LogoHandler) -> Void) {
+        guard let url = endPoint.components.url else {
+            completion(.failure(.unknown))
+            return
+        }
+        let request = URLRequest(url: url)
+        let handler: Handler = { rawData, response, error in
+            do {
+                let data = try self.httpResponse(data: rawData, response: response)
+                let dopUrl = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: Any]
+                if dopUrl?["status"] as? String ?? "" == "error" {
+                    completion(.failure(.network))
+                }
+                
+                let logoEntity = LogoModel(from: dopUrl ?? [:])
+                guard let url = URL(string: logoEntity.url ?? "") else {
+                    completion(.failure(.network))
+                    return
+                }
+             
+                self.processDataLogo(url: url) { result in
+                    switch result {
+                    case .success(let data):
+                        logoEntity.data = data
+                        DispatchQueue.main.async {
+                            completion(.success(logoEntity))
+                        }
+                    case .failure(let err):
+                        completion(.failure(err))
+                    }
+                }
+            } catch {
+                print(error)
+                DispatchQueue.main.async {
+                    completion(.failure((error as? NetworkServiceError) ?? .unknown))
+                }
+            }
+        }
+        session.dataTask(with: request, completionHandler: handler).resume()
+    }
+
+    private func processDataLogo(url: URL, completion: @escaping (Result<Data, NetworkServiceError>) -> Void) {
+        let request = URLRequest(url: url)
+        let handler: Handler = { rawData, response, error in
+            do {
+                let data = try self.httpResponse(data: rawData, response: response)
+                completion(.success(data))
+            } catch {
+                print(error)
+                completion(.failure(.decodable))
             }
         }
         session.dataTask(with: request, completionHandler: handler).resume()

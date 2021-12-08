@@ -16,6 +16,7 @@ class TradingTableViewCell: UITableViewCell {
     let price = UILabel()
     let totalAmount = UILabel()
     let currentPrice = UILabel()
+    let logoimage = UIImageView()
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -43,6 +44,10 @@ class TradingTableViewCell: UITableViewCell {
         currentPrice.textAlignment = .right
         currentPrice.translatesAutoresizingMaskIntoConstraints = false
         addSubview(currentPrice)
+        
+        logoimage.contentMode = .scaleAspectFit
+        logoimage.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(logoimage)
 
         makeConstraints()
     }
@@ -53,10 +58,16 @@ class TradingTableViewCell: UITableViewCell {
 
     // MARK: - Public methods
 
-    public func setUpCell(data: Stock, currentPriceValue: Double) {
+    public func setUpCell(data: Stock, currentPriceValue: Double, image: Data?) {
         price.text = "\(data.boughtPrice)$"
         label.text = data.stockName
         totalAmount.text = "\(data.stockCount) шт"
+        if image == nil {
+            logoimage.isHidden = true
+        } else {
+            logoimage.image = UIImage(data: image!)
+            logoimage.isHidden = false
+        }
         print(currentPriceValue)
         currentPrice.text = String(currentPriceValue)
     }
@@ -73,8 +84,13 @@ class TradingTableViewCell: UITableViewCell {
     private func makeConstraints() {
         label.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(self.frame.width / 2)).isActive = true
+        label.widthAnchor.constraint(equalToConstant: self.frame.width / 4).isActive = true
         label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
+        logoimage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        logoimage.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 4).isActive = true
+        logoimage.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        logoimage.widthAnchor.constraint(equalToConstant: 30).isActive = true
 
         currentPrice.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         currentPrice.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

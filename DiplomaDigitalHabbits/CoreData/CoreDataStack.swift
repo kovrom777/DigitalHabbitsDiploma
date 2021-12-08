@@ -24,8 +24,6 @@ final class CoreDataStack {
 
     // MARK: - Init
     private init () {}
-    
-    
     // MARK: - Read Methods
     public func loadDataForCrypto() -> [Crypto]? {
         let context = container.viewContext

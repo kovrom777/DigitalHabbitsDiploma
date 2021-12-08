@@ -7,10 +7,13 @@
 
 import Foundation
 
-enum Constants{
-    
+protocol EndPoint {
+    var method: String { get }
+    var components: URLComponents { get }
+}
+
+enum Constants {
     enum StockRequest {
-        static let baseURL = "https://api.twelvedata.com/time_series"
+        static let baseURL = "https://api.twelvedata.com"
     }
-    
 }

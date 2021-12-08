@@ -8,12 +8,15 @@
 import UIKit
 
 class CryptoCoordinator: Coordinator{
+    var keyChain: KeyChainService
+    
     var childCoordinators: [Coordinator] = []
     
     var navigationController: UINavigationController
     
-    required init(navigationController: UINavigationController) {
+    required init(navigationController: UINavigationController, keychain: KeyChainService) {
         self.navigationController = navigationController
+        self.keyChain = keychain
     }
     
     func presentAddNewRecord (viewController: CryptoViewController, isStock: Bool) {
@@ -25,6 +28,11 @@ class CryptoCoordinator: Coordinator{
     func presentSettingsScreen() {
         let viewController = SettingsViewController()
         self.navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func showCharts(viewcontroller: UIViewController, dataSet: [CGFloat], title: String) {
+        let vc = ChartsViewController(dataSet: dataSet, title: title)
+        self.navigationController.pushViewController(vc, animated: true)
     }
     
     func start() {

@@ -8,12 +8,15 @@
 import UIKit
 
 class TradingCoordinator: Coordinator {
+    var keyChain: KeyChainService
+    
+    required init(navigationController: UINavigationController, keychain: KeyChainService) {
+        self.navigationController = navigationController
+        self.keyChain = keychain
+    }
+    
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-
-    required init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
 
     func presentAddNewRecord (viewController: TradingViewController, isStock: Bool) {
         let recordVc = AddNewRecordViewController(isStock: isStock)
@@ -26,13 +29,17 @@ class TradingCoordinator: Coordinator {
         self.navigationController.pushViewController(viewController, animated: true)
     }
 
+    func showCharts(viewcontroller: UIViewController, dataSet: [CGFloat], title: String) {
+        let vc = ChartsViewController(dataSet: dataSet, title: title)
+//        viewcontroller.present(vc, animated: true, completion: nil)
+        self.navigationController.pushViewController(vc, animated: true)
+    }
+
     func start() {
-        DispatchQueue.main.async {
-            self.navigationController.isNavigationBarHidden = false
-            let service = URLSessionManager()
-            let tradingVc = TradingViewController(service: service)
-            tradingVc.coordinator = self
-            self.navigationController.pushViewController(tradingVc, animated: true)
-        }
+        self.navigationController.isNavigationBarHidden = false
+        let service = URLSessionManager()
+        let tradingVc = TradingViewController(service: service)
+        tradingVc.coordinator = self
+        self.navigationController.pushViewController(tradingVc, animated: true)
     }
 }

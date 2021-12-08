@@ -11,6 +11,7 @@ struct TradingModel: Decodable {
     let meta: Meta?
     let values: [Value]?
     let status: String
+    var image: Data? = nil
     
     enum Keys: String, CodingKey {
         case meta = "meta"
@@ -22,8 +23,6 @@ struct TradingModel: Decodable {
 struct Meta: Decodable {
     let symbol: String
     let interval: String
-//    let currency: String
-//    let exchangeTimezone: String
     let exchange: String
     let type: String
     
@@ -36,14 +35,4 @@ struct Value: Decodable {
     let high: String
     let low: String
     let close: String
-//    let volume: String
-
-//    enum Keys: String, CodingKey {
-//        case datetime = "datetime"
-//        case open = "open"
-//        case high = "high"
-//        case low = "low"
-//        case close = "close"
-//        case volume = "volume"
-//    }
 }

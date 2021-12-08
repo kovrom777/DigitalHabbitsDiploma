@@ -8,7 +8,9 @@
 import Foundation
 
 typealias PriceHandler = Result<TradingModel?, NetworkServiceError>
+typealias LogoHandler = Result<LogoModel, NetworkServiceError>
 
 protocol NetworkServiceProtocol {
-    func requestPrice (symbol: String, completion: @escaping (PriceHandler) -> Void)
+    func requestWithEndPoint(endPoint: EndPoint, completion: @escaping (PriceHandler) -> Void)
+    func process (endPoint: EndPoint, completion: @escaping (LogoHandler) -> Void)
 }

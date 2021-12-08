@@ -19,7 +19,8 @@ class AddNewRecordView: UIView {
         super.init(frame: frame)
         backgroundColor = .systemGray
 
-        tokenLabel.placeholder = "  Token"
+        tokenLabel.placeholder = "Token"
+        tokenLabel.setLeftPaddingPoints(12)
         tokenLabel.layer.cornerRadius = 16
         tokenLabel.layer.borderColor = UIColor.white.cgColor
         tokenLabel.layer.borderWidth = 2
@@ -30,8 +31,9 @@ class AddNewRecordView: UIView {
         datePicker.locale = Locale(identifier: "RU")
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         addSubview(datePicker)
-        
-        boughtAmount.placeholder = "  Цена покупки"
+
+        boughtAmount.placeholder = "Цена покупки"
+        boughtAmount.setLeftPaddingPoints(12)
         boughtAmount.layer.cornerRadius = 16
         boughtAmount.layer.borderColor = UIColor.white.cgColor
         boughtAmount.layer.borderWidth = 2
@@ -39,7 +41,8 @@ class AddNewRecordView: UIView {
         boughtAmount.keyboardType = .decimalPad
         addSubview(boughtAmount)
 
-        tokenAmount.placeholder = "  Количество токенов"
+        tokenAmount.placeholder = "Количество токенов"
+        tokenAmount.setLeftPaddingPoints(12)
         tokenAmount.layer.cornerRadius = 16
         tokenAmount.layer.borderColor = UIColor.white.cgColor
         tokenAmount.layer.borderWidth = 2

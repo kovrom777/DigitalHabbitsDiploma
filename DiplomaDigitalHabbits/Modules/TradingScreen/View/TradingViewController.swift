@@ -17,7 +17,7 @@ class TradingViewController: UIViewController {
     var stocks: [Stock]?
     private var service: NetworkServiceProtocol
     private var stockData = [TradingModel]()
-
+    private var logos = [LogoModel]()
     // MARK: - Init
     init(service: NetworkServiceProtocol) {
         self.service = service
@@ -33,9 +33,6 @@ class TradingViewController: UIViewController {
         super.viewWillAppear(animated)
         loadInfo()
         contentView.tableView.reloadData()
-        if SettingsModel.shared.useWebSocket {
-            toggleWebSocket()
-        }
     }
 
     override func viewDidLoad() {
@@ -49,40 +46,46 @@ class TradingViewController: UIViewController {
     }
 
     // MARK: - Private methods
-    private func getData() {
-        WebSocketManager.shared.receiveData { model in
-            print(model)
-        }
-    }
 
     private func loadInfo () {
         stocks = coreDataManager.loadDataForStocks()
         stockData.removeAll()
         for stock in stocks ?? [] {
-            service.requestPrice(symbol: stock.stockName ?? "") { [weak self] result in
+            let key = coordinator?.keyChain.object(for: GenericKey(key: "key")) ?? ""
+            let endPoint = TradingPriceEndPoint(symbol: stock.stockName ?? "", key: key)
+            service.requestWithEndPoint(endPoint: endPoint) { [weak self] result in
                 guard let self = self else {return}
                 switch result {
                 case .failure(let err):
                     print(err.message)
-                    DispatchQueue.main.async {
-                        AlertService.presentErrorAlert(vc: self, title: "Ошибка", message: err.message)
-                    }
+                    AlertService.presentErrorAlert(vc: self, title: "Ошибка", message: err.message)
                 case .success(let data):
                     self.stockData.append(data!)
                     if self.stockData.count == self.stocks?.count ?? 0 {
-                        DispatchQueue.main.async {
-                            self.contentView.tableView.reloadData()
-                        }
+                        self.contentView.tableView.reloadData()
+                        self.loadLogos()
                     }
                 }
             }
         }
     }
-
-    private func toggleWebSocket() {
-        if SettingsModel.shared.useWebSocket {
-            WebSocketManager.shared.connectToWebSocket()
-            WebSocketManager.shared.subscribeOnSMTH()
+    
+    private func loadLogos(){
+        stocks = coreDataManager.loadDataForStocks()
+        let key = coordinator?.keyChain.object(for: GenericKey(key: "key")) ?? ""
+        for stock in stocks ?? [] {
+            let logoEndPoint = LogoEndPoint(symbol: stock.stockName ?? "", key: key)
+            self.service.process(endPoint: logoEndPoint) { result in
+                switch result {
+                case .success(let elem):
+                    self.logos.append(elem)
+                    if self.logos.count == self.stocks?.count ?? 0 {
+                        self.contentView.tableView.reloadData()
+                    }
+                case .failure(_):
+                    print("error")
+                }
+            }
         }
     }
 
@@ -133,23 +136,44 @@ extension TradingViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TradingTableViewCell.cellId, for: indexPath) as? TradingTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: TradingTableViewCell.cellId,
+            for: indexPath) as? TradingTableViewCell else {
             return UITableViewCell()
         }
-        guard let dopCrypto = stocks else {
-            return UITableViewCell()
-        }
-        guard let stockName = dopCrypto[indexPath.row].stockName else {
+        guard let dopCrypto = stocks, let stockName = dopCrypto[indexPath.row].stockName else {
             return UITableViewCell()
         }
         var currentPrice = 0.0
+        var image: Data?
         for stock in stockData {
             if stock.meta?.symbol ?? "" == stockName.replacingOccurrences(of: " ", with: "").uppercased() {
                 currentPrice = Double(stock.values?.first?.open ?? "") ?? 0.0
             }
         }
-        cell.setUpCell(data: dopCrypto[indexPath.row], currentPriceValue: currentPrice)
+
+        for logo in logos {
+            if logo.symbol ?? "" == stockName.replacingOccurrences(of: " ", with: "").uppercased() {
+                image = logo.data
+            }
+        }
+        cell.setUpCell(data: dopCrypto[indexPath.row], currentPriceValue: currentPrice, image: image)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let dopCrypto = stocks, let stockName = dopCrypto[indexPath.row].stockName else {
+            return
+        }
+        var dataSet = [CGFloat]()
+
+        stockData[indexPath.row].values?.forEach({
+            let dooo = Double($0.close)
+            dataSet.append(CGFloat(dooo ?? 0.0))
+        })
+        print(dataSet)
+
+        coordinator?.showCharts(viewcontroller: self, dataSet: dataSet, title: stockName)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
