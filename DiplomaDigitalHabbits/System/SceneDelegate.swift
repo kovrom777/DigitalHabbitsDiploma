@@ -10,12 +10,17 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    var baseCoordinator: AuthCoordinator?
+    var keyChainService = KeyChainService()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        self.keyChainService = KeyChainService()
+        self.keyChainService.save(value: "e4e382a154f846648a9c8c327aa703a6", queryItem: GenericKey(key: "key"))
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = StartViewController()
+        let navController = UINavigationController()
+        baseCoordinator = AuthCoordinator(navigationController: navController, keychain: self.keyChainService)
+        baseCoordinator?.start()
+        window.rootViewController = navController
         self.window = window
         window.makeKeyAndVisible()
     }
